@@ -1,0 +1,66 @@
+      
+      <?php  //if(isset($this->dados)){ print_r($this->dados); } ?>
+
+<div class="container">
+<div class="py-5 text-left">
+<a class="btn btn-primary btn-sm" title="Retornar" href="<?php echo BASE_URL.'pessoa'; ?> " role="button"><i class="bi bi-chevron-compact-left"></i></a>
+
+<h1 class="display-3"><?php echo $this->titulo; ?> </h1>
+  <h2><?php echo $this->subtitulo; ?></h2>
+  <h7><span class="font-italic text-muted"> #<?php if(isset($this->dados['id'])){ echo $this->dados['id'].'-'.$this->dados['nome'];} ?></span></h7>
+</div>
+
+<div class="row">
+  <div class="col-md-8 order-md-1">
+    <h4 class="mb-3">Formulário</h4>
+    <form class="needs-validation" id="form-update-pessoa" action="<?php echo BASE_URL.'pessoa/update/'.$this->dados['id']; ?>" method="post" novalidate>
+    <input type="hidden" name="update" value="1">
+      <div class="row">
+        <div class="col-md-12 mb-3">
+          <label for="nome">Nome</label>
+          <input type="text" pattern=".{3,}" class="form-control font-weight-bold" focus id="nome" name="nome" placeholder="" value="<?php if(isset($this->dados['nome'])){ echo $this->dados['nome'];} ?>" required>
+          <div class="invalid-feedback">
+            É obrigatório inserir um Nome válido.
+          </div>
+        </div>
+        
+      </div>
+      <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="email">Email <span class="text-muted">(Opcional)</span></label>
+        <input type="email" class="form-control" id="email" name="email"  value="<?php if(isset($this->dados['email'])){ echo $this->dados['email'];} ?>" placeholder="fulano@exemplo.com">
+        <div class="invalid-feedback">
+          Por favor, insira um endereço de e-mail válido.
+        </div>
+      </div>
+        <div class="col-md-6 mb-3">
+          <label for="categoria_is">Categoria</label>
+          <select class="custom-select d-block w-100" id="categoria_id" name="categoria_id" required>
+          <option value="">Escolha...</option>
+          <?php 
+          if(isset($this->categorias) && count($this->categorias)){
+              foreach ($this->categorias as $key => $cat ) {
+                  if($this->dados['categoria_id']==$cat['id']) {
+                    echo '<option value="'.$cat['id'].'" SELECTED>'.$cat['nome'].'</option>';
+                  } else {
+                    echo '<option value="'.$cat['id'].'">'.$cat['nome'].'</option>';
+                  }
+              }
+          } 
+          ?>
+          </select>
+          <div class="invalid-feedback">
+            Por favor, escolha uma Categoria válida.
+          </div>
+        </div>
+        
+      </div>
+      
+      <hr class="mb-4">
+      <button class="btn btn-primary btn-lg btn-block" value="salvar" id="BotaoSalvar" type="submit">Salvar</button>
+      <p><br/></p>
+      
+    </form>
+  </div>
+</div>
+<div class="mb-6"></div>

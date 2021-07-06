@@ -1,0 +1,26 @@
+    
+    <div class="container">
+
+    <div class="text-center">
+    <form class="form-signin" id="login-form" action="<?php echo BASE_URL.'login'?>" method="POST" >
+        <input type="hidden" value="1" name="enviar"/>
+        <i class="bi bi-person-badge-fill " style="font-size: 72px;"></i>
+        <h1 class="h3 mb-3 font-weight-normal">Faça login</h1>
+        <label for="usuario" class="sr-only">Nome de usuario</label>
+        <input type="text" id="usuario" name="usuario" class="form-control" placeholder="Seu usuario" value="<?php if(isset($this->dados['usuario'])){ echo $this->dados['usuario'];} ?>" required autofocus>
+        <br/>
+        <label for="senha" class="sr-only mb-5">Senha</label>
+        <input type="password" id="senha" class="form-control" name="senha" value="<?php if(isset($this->dados['senha'])){ echo $this->dados['senha'];} ?>" placeholder="Senha" required>
+        <span type="button" id="show_password" name="show_password" class="bi bi-eye-fill" aria-hidden="true"></span>
+        <br/>
+        <div class="checkbox mb-3">
+            <label>
+            <input type="checkbox" value="lembre-me"> Lembrar credenciais
+            </label>
+        </div>
+        
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+        
+        </form>
+    </div>
+    </div>

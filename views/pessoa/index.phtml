@@ -1,0 +1,73 @@
+<!-- Principal jumbotron, para a principal mensagem de marketing ou call to action -->
+<div class="jumbotron">
+  <div class="container">
+    <h1 class="display-3">Pessoas</h1>
+    <p>Bem vindo a lista de Pessoas padrao aqui voce pode gerenciar seus cadastros</p>
+    <p><a class="btn btn-primary btn-lg" href="<?php echo BASE_URL . 'pessoa/create'; ?> " role="button">Adicionar novo +</a></p>
+  </div>
+</div>
+
+<div class="container">
+<div class="col-md-6">
+<a class="btn btn-primary btn-lg" id="btnPesquisaAjax" href="#" role="button">Adicionar novo +</a></p>
+  
+</div>
+<div class="col-md-6">
+<?php
+    if (isset($this->paginacao)) {
+
+      echo $this->paginacao;
+    }
+    ?>
+</div>   
+  <div class="table-responsive">
+    
+    <table class="table table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Codigo</th>
+          <th scope="col">Nome</th>
+          <th scope="col">E-mail</th>
+          <th scope="col">Categoria</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php
+
+        if (isset($this->pessoas) && count($this->pessoas)) {
+
+          foreach ($this->pessoas as $key => $pessoa) {
+
+            echo '<tr>
+            <th>
+            <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle btn-sm" type="button" id="BtnAcao' . $pessoa['id'] . '" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Acão
+            </button>
+            <div class="dropdown-menu" aria-labelledby="BtnAcao' . $pessoa['id'] . '">
+            <a class="dropdown-item" href="' . BASE_URL . 'pessoa/update/' . $pessoa['id'] . '" role="button">Editar</a>
+            <a class="dropdown-item" href="' . BASE_URL . 'pessoa/delete/' . $pessoa['id'] . '" role="button">Excluir</a>
+            </div>
+          </div>
+            
+            
+             </th>
+            <th>' . $pessoa['id'] . '</th>
+            <td scope="row">' . $pessoa['nome'] . '</td>
+            <td>' . $pessoa['email'] . '</td>
+            <td>' . $pessoa['categoria'] . '</td>
+           </tr>';
+          }
+        } else {
+
+          echo '<p> <h4> Não há dados cadastrado.';
+        }
+
+
+
+        ?>
+      </tbody>
+    </table>
+  </div>
+</div>
