@@ -26,7 +26,7 @@ define('EMAIL_SMTPDEBUG', false); //SMTP::DEBUG_SERVER;     //HABILITA OU UNAO O
 define('EMAIL_HOST', 'smtp.gmail.com');                     //SETA O SERVIDOR QUE VAI ENVIAR SMPT
 define('EMAIL_SMTPAUTH', true);                             //HABILITA AUTENTICACAO SMTP
 define('EMAIL_USUARIO', 'crixus.api@gmail.com');            //Usuario SMTP
-define('EMAIL_SENHA', 'ydumxvmroagiiret');                  //SENHA SMTP pode ser gerada Senha API / Ou senha normal
+define('EMAIL_SENHA', '');                  //SENHA SMTP pode ser gerada Senha API / Ou senha normal
 define('EMAIL_PORTA', 587);                                 //PORTA DE ENVIO 
 define('EMAIL_USUARIO_ENVIO','contato@crixus.com.br'); 
 define('EMAIL_USUARIO_NOME', 'CrudSimples');
